@@ -1,0 +1,157 @@
+﻿<Window x:Class="KabelTest.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KabelTest"
+        mc:Ignorable="d"
+        Title="Проверка" MinHeight="600" MinWidth="800" Height="700" Width="1000" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+    <Grid Background="LightGray" ShowGridLines="False">
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto" MinWidth="700"/>
+        </Grid.ColumnDefinitions>
+
+        <Menu Margin="2,2,2,2" Background="LightGray" Grid.Row="0">
+            <MenuItem Header="Окно">
+                <MenuItem Header="Создание топологии" Click="MenuItem_Click"></MenuItem>
+                <MenuItem x:Name="PortItem" Header="Порт" Click="PortItem_Click" ></MenuItem>
+            </MenuItem>
+            <MenuItem Header="О программе">
+                <MenuItem Header="Как пользоваться программой"></MenuItem>
+                <MenuItem Header="Как пользоваться прибором"></MenuItem>
+                <Separator></Separator>
+                <MenuItem Header="Текущая версия"></MenuItem>
+            </MenuItem>
+
+        </Menu>
+
+        <ScrollViewer Grid.RowSpan="4" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Grid.Column="1">
+            <Grid Grid.RowSpan="4" x:Name="ComparingTableGrid" ShowGridLines="False" MouseRightButtonDown="ComparingTableGrid_MouseRightButtonDown" MouseRightButtonUp="ComparingTableGrid_MouseRightButtonUp">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+
+                
+                <StackPanel x:Name="topFrame" Orientation="Horizontal" Grid.Row="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></StackPanel>
+                <StackPanel x:Name="pass_1_1" Orientation="Horizontal" Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></StackPanel>
+                <StackPanel x:Name="pass_1_2" Orientation="Horizontal" Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></StackPanel>
+                <StackPanel x:Name="pass_1_3" Orientation="Horizontal" Grid.Row="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></StackPanel>
+                <StackPanel x:Name="pass_1_4" Orientation="Horizontal" Grid.Row="4" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></StackPanel>
+                <StackPanel x:Name="pass_1_5" Orientation="Horizontal" Grid.Row="5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></StackPanel>
+                <StackPanel x:Name="pass_1_6" Orientation="Horizontal" Grid.Row="6" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></StackPanel>
+                <StackPanel x:Name="pass_1_7" Orientation="Horizontal" Grid.Row="7" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></StackPanel>
+                <StackPanel x:Name="pass_1_8" Orientation="Horizontal" Grid.Row="8" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></StackPanel>
+                <StackPanel x:Name="pass_1_9" Orientation="Horizontal" Grid.Row="9" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></StackPanel>
+                <StackPanel x:Name="pass_1_10" Orientation="Horizontal" Grid.Row="10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></StackPanel>
+                <StackPanel x:Name="pass_1_11" Orientation="Horizontal" Grid.Row="11" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></StackPanel>
+                <StackPanel x:Name="pass_1_12" Orientation="Horizontal" Grid.Row="12" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></StackPanel>
+                <StackPanel x:Name="pass_1_13" Orientation="Horizontal" Grid.Row="13" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></StackPanel>
+                <StackPanel x:Name="pass_1_14" Orientation="Horizontal" Grid.Row="14" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></StackPanel>
+                <StackPanel x:Name="pass_1_15" Orientation="Horizontal" Grid.Row="15" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></StackPanel>
+                <StackPanel x:Name="pass_1_16" Orientation="Horizontal" Grid.Row="16" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></StackPanel>
+                <StackPanel x:Name="pass_1_17" Orientation="Horizontal" Grid.Row="17" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></StackPanel>
+                <StackPanel x:Name="pass_1_18" Orientation="Horizontal" Grid.Row="18" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></StackPanel>
+                <StackPanel x:Name="pass_1_19" Orientation="Horizontal" Grid.Row="19" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></StackPanel>
+                <StackPanel x:Name="centerFrame" Orientation="Horizontal" Grid.Row="20" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></StackPanel>
+                <StackPanel x:Name="pass_2_1" Orientation="Horizontal" Grid.Row="21" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></StackPanel>
+                <StackPanel x:Name="pass_2_2" Orientation="Horizontal" Grid.Row="22" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></StackPanel>
+                <StackPanel x:Name="pass_2_3" Orientation="Horizontal" Grid.Row="23" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></StackPanel>
+                <StackPanel x:Name="pass_2_4" Orientation="Horizontal" Grid.Row="24" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></StackPanel>
+                <StackPanel x:Name="pass_2_5" Orientation="Horizontal" Grid.Row="25" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></StackPanel>
+                <StackPanel x:Name="pass_2_6" Orientation="Horizontal" Grid.Row="26" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></StackPanel>
+                <StackPanel x:Name="pass_2_7" Orientation="Horizontal" Grid.Row="27" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></StackPanel>
+                <StackPanel x:Name="pass_2_8" Orientation="Horizontal" Grid.Row="28" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></StackPanel>
+                <StackPanel x:Name="pass_2_9" Orientation="Horizontal" Grid.Row="29" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></StackPanel>
+                <StackPanel x:Name="pass_2_10" Orientation="Horizontal" Grid.Row="30" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></StackPanel>
+                <StackPanel x:Name="pass_2_11" Orientation="Horizontal" Grid.Row="31" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></StackPanel>
+                <StackPanel x:Name="pass_2_12" Orientation="Horizontal" Grid.Row="32" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></StackPanel>
+                <StackPanel x:Name="pass_2_13" Orientation="Horizontal" Grid.Row="33" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></StackPanel>
+                <StackPanel x:Name="pass_2_14" Orientation="Horizontal" Grid.Row="34" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></StackPanel>
+                <StackPanel x:Name="pass_2_15" Orientation="Horizontal" Grid.Row="35" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></StackPanel>
+                <StackPanel x:Name="pass_2_16" Orientation="Horizontal" Grid.Row="36" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></StackPanel>
+                <StackPanel x:Name="pass_2_17" Orientation="Horizontal" Grid.Row="37" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></StackPanel>
+                <StackPanel x:Name="pass_2_18" Orientation="Horizontal" Grid.Row="38" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></StackPanel>
+                <StackPanel x:Name="pass_2_19" Orientation="Horizontal" Grid.Row="39" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></StackPanel>
+                <StackPanel x:Name="bottomFrame" Orientation="Horizontal" Grid.Row="40" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></StackPanel>
+
+                <Grid x:Name="CanvasGrid" Grid.RowSpan="41" >
+                    
+                </Grid>
+
+            </Grid>
+        </ScrollViewer>
+
+        <Image x:Name="SchemeCompWin" Grid.Row="0" Grid.RowSpan="2" Margin="0,28,1,0" MouseRightButtonUp="SchemeCompWin_MouseRightButtonUp">
+            
+        </Image>
+        
+            <ListBox x:Name="listBox" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,1,1" Grid.Row="2" Background="DarkGray" 
+                      SelectionMode="Single" FontSize="15" FontWeight="DemiBold" MouseLeftButtonUp="listBox_MouseLeftButtonUp" KeyDown="listBox_KeyDown" SelectionChanged="listBox_SelectionChanged" MouseDoubleClick="listBox_MouseDoubleClick">
+
+            </ListBox>
+
+        
+
+        <StackPanel Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" Margin="0,0,1,0">
+            <Button x:Name="ComparingButton" Height="Auto" Width="Auto" Content="Проверка" Click="ComparingButton_Click"
+                 FontWeight="Bold" FontSize="15" Padding="2,4,2,4" MinWidth="150" MinHeight="42"/>
+            <Button x:Name="RefreshList" Content="Обновить список" Click="RefreshList_Click" Padding="1,1,1,1" Margin="0,0,0,0"/>
+                <Button x:Name="ClearLabeles" Content="Очистить поле" Click="ClearLabeles_Click" Padding="1,1,1,1" Margin="0,0,0,0"/>
+                                                              
+        </StackPanel>
+        
+        <TextBox x:Name="Console_comparingWindow" Grid.Column="0" Grid.Row="3"  Padding="1,1,1,1"  ScrollViewer.CanContentScroll="True" Margin="0,0,1,0"
+                 VerticalScrollBarVisibility="Auto" Text="Результат проверки: " IsReadOnly="True" HorizontalScrollBarVisibility="Auto" TextChanged="Console_comparingWindow_TextChanged"/>
+
+    </Grid>
+</Window>

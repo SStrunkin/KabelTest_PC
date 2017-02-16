@@ -1,0 +1,406 @@
+﻿<Window x:Class="KabelTest.GenerateTopolpgy"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KabelTest"
+        mc:Ignorable="d"
+        Title="Создание топологии" MinHeight="600" MinWidth="800" Height="710" Width="1000" WindowStartupLocation="CenterScreen" WindowState="Normal">
+    <Grid Background="LightGray" ShowGridLines="False">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="1.8*"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*" MinHeight="100"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+        </Grid.ColumnDefinitions>
+
+        <Menu Margin="2,2,2,2" Background="LightGray" Grid.Row="0">
+            <MenuItem Header="Файл">
+                <MenuItem Header="Новый" Click="MenuItem_Click_5"></MenuItem>
+                <MenuItem Header="Открыть" Click="MenuItem_Click_2"></MenuItem>
+                <MenuItem Header="Сохранить" Click="MenuItem_Click_6" ></MenuItem>
+                <MenuItem Header="Сохранить как..." Click="MenuItem_Click_3"></MenuItem>
+                <Separator></Separator>
+                <MenuItem Header="Выход" Click="MenuItem_Click"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Окно">
+               
+                <MenuItem x:Name="PortItem" Header="Порт" Click="MenuItem_Click_4"></MenuItem>
+            </MenuItem>
+        </Menu>
+
+
+
+        <Image x:Name="image_Scheme" HorizontalAlignment="Center" VerticalAlignment="Center" ScrollViewer.CanContentScroll="True" Grid.RowSpan="3"
+           Margin="2,2,2,2" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Stretch="Uniform" MouseRightButtonUp="image_Scheme_MouseRightButtonUp"/>
+
+
+        <StackPanel Grid.Row="0" Grid.Column="2" Margin="2,4,4,0" Orientation="Vertical" Grid.RowSpan="4" >
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
+                <Label x:Name="Name_or_NKRM_l" Content="Название или НКРМ" HorizontalAlignment="Center" Margin="5,0,5,0" FontWeight="Bold"/>
+                <TextBox x:Name="Name_or_NKRM_t" HorizontalAlignment="Stretch" MinWidth="200" MaxWidth="300" TextAlignment="Center"
+                        TextBlock.FontWeight="Bold" TextBlock.Foreground="RoyalBlue" Padding="3"/>
+            </StackPanel>
+
+            <DockPanel Margin="0,3,0,0">
+                <Label x:Name="X1" Content="         Разъём Х1" HorizontalAlignment="Left" DockPanel.Dock="Left" FontWeight="Bold"/>
+                <Label x:Name="X2" Content="Разъём Х2         " HorizontalAlignment="Right" DockPanel.Dock="Right" FontWeight="Bold"/>
+            </DockPanel>
+
+
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                <StackPanel VerticalAlignment="Stretch" Orientation="Vertical" Name="CheckboxPanel" >
+                    <DockPanel Margin="0,2,0,0">
+                        <Label x:Name="X1_1lable" Content="Контакт   1" HorizontalAlignment="Left" DockPanel.Dock="Left"/>
+                        <ComboBox x:Name="X1_1" HorizontalAlignment="Left" DockPanel.Dock="Left" Margin="0,0,15,0"
+                          ItemsSource="{Binding CmbContent}" MinWidth="120" SelectedIndex="0" MaxHeight="22"  />
+
+                        <Separator x:Name="separator_1" Width="10" Height="auto" RenderTransformOrigin="0.5,0.5" >
+                            <Separator.RenderTransform>
+                                <RotateTransform Angle="90"/>
+                            </Separator.RenderTransform>
+                        </Separator>
+
+                        <Label x:Name="X2_1lable" Content="Контакт   1" HorizontalAlignment="Right" DockPanel.Dock="Right"/>
+                        <ComboBox x:Name="X2_1" HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="15,0,0,0"
+                         ItemsSource="{Binding CmbContent}" MinWidth="120" SelectedIndex="0" MaxHeight="22" />
+                    </DockPanel>
+
+                    <DockPanel Margin="0,4,0,0">
+                        <Label x:Name="X1_2lable" Content="Контакт   2" HorizontalAlignment="Left" DockPanel.Dock="Left"/>
+                        <ComboBox x:Name="X1_2" HorizontalAlignment="Left" DockPanel.Dock="Left" Margin="0,0,15,0"
+                          ItemsSource="{Binding CmbContent}" MinWidth="120" SelectedIndex="0" MaxHeight="22" />
+
+                        <Separator x:Name="separator_2" Width="10" Height="auto" RenderTransformOrigin="0.5,0.5" >
+                            <Separator.RenderTransform>
+                                <RotateTransform Angle="90"/>
+                            </Separator.RenderTransform>
+                        </Separator>
+
+                        <Label x:Name="X2_2lable" Content="Контакт   2" HorizontalAlignment="Right" DockPanel.Dock="Right"/>
+                        <ComboBox x:Name="X2_2" HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="15,0,0,0"
+                         ItemsSource="{Binding CmbContent}" MinWidth="120" SelectedIndex="0" MaxHeight="22" />
+                    </DockPanel>
+
+                    <DockPanel Margin="0,4,0,0">
+                        <Label x:Name="X1_3lable" Content="Контакт   3" HorizontalAlignment="Left" DockPanel.Dock="Left"/>
+                        <ComboBox x:Name="X1_3" HorizontalAlignment="Left" DockPanel.Dock="Left" Margin="0,0,15,0"
+                          ItemsSource="{Binding CmbContent}" MinWidth="120" SelectedIndex="0" MaxHeight="22" />
+
+                        <Separator x:Name="separator_3" Width="10" Height="auto" RenderTransformOrigin="0.5,0.5" >
+                            <Separator.RenderTransform>
+                                <RotateTransform Angle="90"/>
+                            </Separator.RenderTransform>
+                        </Separator>
+
+                        <Label x:Name="X2_3lable" Content="Контакт   3" HorizontalAlignment="Right" DockPanel.Dock="Right"/>
+                        <ComboBox x:Name="X2_3" HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="15,0,0,0"
+                         ItemsSource="{Binding CmbContent}" MinWidth="120" SelectedIndex="0" MaxHeight="22" />
+                    </DockPanel>
+
+                    <DockPanel Margin="0,4,0,0">
+                        <Label x:Name="X1_4lable" Content="Контакт   4" HorizontalAlignment="Left" DockPanel.Dock="Left"/>
+                        <ComboBox x:Name="X1_4" HorizontalAlignment="Left" DockPanel.Dock="Left" Margin="0,0,15,0"
+                          ItemsSource="{Binding CmbContent}" MinWidth="120" SelectedIndex="0" MaxHeight="22" />
+
+                        <Separator x:Name="separator_4" Width="10" Height="auto" RenderTransformOrigin="0.5,0.5" >
+                            <Separator.RenderTransform>
+                                <RotateTransform Angle="90"/>
+                            </Separator.RenderTransform>
+                        </Separator>
+
+                        <Label x:Name="X2_4lable" Content="Контакт   4" HorizontalAlignment="Right" DockPanel.Dock="Right"/>
+                        <ComboBox x:Name="X2_4" HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="15,0,0,0"
+                         ItemsSource="{Binding CmbContent}" MinWidth="120" SelectedIndex="0" MaxHeight="22" />
+                    </DockPanel>
+
+                    <DockPanel Margin="0,4,0,0">
+                        <Label x:Name="X1_5lable" Content="Контакт   5" HorizontalAlignment="Left" DockPanel.Dock="Left"/>
+                        <ComboBox x:Name="X1_5" HorizontalAlignment="Left" DockPanel.Dock="Left" Margin="0,0,15,0"
+                          ItemsSource="{Binding CmbContent}" MinWidth="120" SelectedIndex="0" MaxHeight="22" />
+
+                        <Separator x:Name="separator_5" Width="10" Height="auto" RenderTransformOrigin="0.5,0.5" >
+                            <Separator.RenderTransform>
+                                <RotateTransform Angle="90"/>
+                            </Separator.RenderTransform>
+                        </Separator>
+
+                        <Label x:Name="X2_5lable" Content="Контакт   5" HorizontalAlignment="Right" DockPanel.Dock="Right"/>
+                        <ComboBox x:Name="X2_5" HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="15,0,0,0"
+                         ItemsSource="{Binding CmbContent}" MinWidth="120" SelectedIndex="0" MaxHeight="22" />
+                    </DockPanel>
+
+                    <DockPanel Margin="0,4,0,0">
+                        <Label x:Name="X1_6lable" Content="Контакт   6" HorizontalAlignment="Left" DockPanel.Dock="Left"/>
+                        <ComboBox x:Name="X1_6" HorizontalAlignment="Left" DockPanel.Dock="Left" Margin="0,0,15,0"
+                          ItemsSource="{Binding CmbContent}" MinWidth="120" SelectedIndex="0" MaxHeight="22" />
+
+                        <Separator x:Name="separator_6" Width="10" Height="auto" RenderTransformOrigin="0.5,0.5" >
+                            <Separator.RenderTransform>
+                                <RotateTransform Angle="90"/>
+                            </Separator.RenderTransform>
+                        </Separator>
+
+                        <Label x:Name="X2_6lable" Content="Контакт   6" HorizontalAlignment="Right" DockPanel.Dock="Right"/>
+                        <ComboBox x:Name="X2_6" HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="15,0,0,0"
+                         ItemsSource="{Binding CmbContent}" MinWidth="120" SelectedIndex="0" MaxHeight="22" />
+                    </DockPanel>
+
+                    <DockPanel Margin="0,4,0,0">
+                        <Label x:Name="X1_7lable" Content="Контакт   7" HorizontalAlignment="Left" DockPanel.Dock="Left"/>
+                        <ComboBox x:Name="X1_7" HorizontalAlignment="Left" DockPanel.Dock="Left" Margin="0,0,15,0"
+                          ItemsSource="{Binding CmbContent}" MinWidth="120" SelectedIndex="0" MaxHeight="22" />
+
+                        <Separator x:Name="separator_7" Width="10" Height="auto" RenderTransformOrigin="0.5,0.5" >
+                            <Separator.RenderTransform>
+                                <RotateTransform Angle="90"/>
+                            </Separator.RenderTransform>
+                        </Separator>
+
+                        <Label x:Name="X2_7lable" Content="Контакт   7" HorizontalAlignment="Right" DockPanel.Dock="Right"/>
+                        <ComboBox x:Name="X2_7" HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="15,0,0,0"
+                         ItemsSource="{Binding CmbContent}" MinWidth="120" SelectedIndex="0" MaxHeight="22" />
+                    </DockPanel>
+
+                    <DockPanel Margin="0,4,0,0">
+                        <Label x:Name="X1_8lable" Content="Контакт   8" HorizontalAlignment="Left" DockPanel.Dock="Left"/>
+                        <ComboBox x:Name="X1_8" HorizontalAlignment="Left" DockPanel.Dock="Left" Margin="0,0,15,0"
+                          ItemsSource="{Binding CmbContent}" MinWidth="120" SelectedIndex="0" MaxHeight="22" />
+
+                        <Separator x:Name="separator_8" Width="10" Height="auto" RenderTransformOrigin="0.5,0.5" >
+                            <Separator.RenderTransform>
+                                <RotateTransform Angle="90"/>
+                            </Separator.RenderTransform>
+                        </Separator>
+
+                        <Label x:Name="X2_8lable" Content="Контакт   8" HorizontalAlignment="Right" DockPanel.Dock="Right"/>
+                        <ComboBox x:Name="X2_8" HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="15,0,0,0"
+                         ItemsSource="{Binding CmbContent}" MinWidth="120" SelectedIndex="0" MaxHeight="22" />
+                    </DockPanel>
+
+                    <DockPanel Margin="0,4,0,0">
+                        <Label x:Name="X1_9lable" Content="Контакт   9" HorizontalAlignment="Left" DockPanel.Dock="Left"/>
+                        <ComboBox x:Name="X1_9" HorizontalAlignment="Left" DockPanel.Dock="Left" Margin="0,0,15,0"
+                          ItemsSource="{Binding CmbContent}" MinWidth="120" SelectedIndex="0" MaxHeight="22" />
+
+                        <Separator x:Name="separator_9" Width="10" Height="auto" RenderTransformOrigin="0.5,0.5" >
+                            <Separator.RenderTransform>
+                                <RotateTransform Angle="90"/>
+                            </Separator.RenderTransform>
+                        </Separator>
+
+                        <Label x:Name="X2_9lable" Content="Контакт   9" HorizontalAlignment="Right" DockPanel.Dock="Right"/>
+                        <ComboBox x:Name="X2_9" HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="15,0,0,0"
+                         ItemsSource="{Binding CmbContent}" MinWidth="120" SelectedIndex="0" MaxHeight="22" />
+                    </DockPanel>
+
+                    <DockPanel Margin="0,4,0,0">
+                        <Label x:Name="X1_10lable" Content="Контакт 10" HorizontalAlignment="Left" DockPanel.Dock="Left"/>
+                        <ComboBox x:Name="X1_10" HorizontalAlignment="Left" DockPanel.Dock="Left" Margin="0,0,15,0"
+                          ItemsSource="{Binding CmbContent}" MinWidth="120" SelectedIndex="0" MaxHeight="22" />
+
+                        <Separator x:Name="separator_10" Width="10" Height="auto" RenderTransformOrigin="0.5,0.5" >
+                            <Separator.RenderTransform>
+                                <RotateTransform Angle="90"/>
+                            </Separator.RenderTransform>
+                        </Separator>
+
+                        <Label x:Name="X2_10lable" Content="Контакт 10" HorizontalAlignment="Right" DockPanel.Dock="Right"/>
+                        <ComboBox x:Name="X2_10" HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="15,0,0,0"
+                         ItemsSource="{Binding CmbContent}" MinWidth="120" SelectedIndex="0" MaxHeight="22" />
+                    </DockPanel>
+
+                    <DockPanel Margin="0,4,0,0">
+                        <Label x:Name="X1_11lable" Content="Контакт 11" HorizontalAlignment="Left" DockPanel.Dock="Left"/>
+                        <ComboBox x:Name="X1_11" HorizontalAlignment="Left" DockPanel.Dock="Left" Margin="0,0,15,0"
+                          ItemsSource="{Binding CmbContent}" MinWidth="120" SelectedIndex="0" MaxHeight="22" />
+
+                        <Separator x:Name="separator_11" Width="10" Height="auto" RenderTransformOrigin="0.5,0.5" >
+                            <Separator.RenderTransform>
+                                <RotateTransform Angle="90"/>
+                            </Separator.RenderTransform>
+                        </Separator>
+
+                        <Label x:Name="X2_11lable" Content="Контакт 11" HorizontalAlignment="Right" DockPanel.Dock="Right"/>
+                        <ComboBox x:Name="X2_11" HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="15,0,0,0"
+                         ItemsSource="{Binding CmbContent}" MinWidth="120" SelectedIndex="0" MaxHeight="22" />
+                    </DockPanel>
+
+                    <DockPanel Margin="0,4,0,0">
+                        <Label x:Name="X1_12lable" Content="Контакт 12" HorizontalAlignment="Left" DockPanel.Dock="Left"/>
+                        <ComboBox x:Name="X1_12" HorizontalAlignment="Left" DockPanel.Dock="Left" Margin="0,0,15,0"
+                          ItemsSource="{Binding CmbContent}" MinWidth="120" SelectedIndex="0" MaxHeight="22" />
+
+                        <Separator x:Name="separator_12" Width="10" Height="auto" RenderTransformOrigin="0.5,0.5" >
+                            <Separator.RenderTransform>
+                                <RotateTransform Angle="90"/>
+                            </Separator.RenderTransform>
+                        </Separator>
+
+                        <Label x:Name="X2_12lable" Content="Контакт 12" HorizontalAlignment="Right" DockPanel.Dock="Right"/>
+                        <ComboBox x:Name="X2_12" HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="15,0,0,0"
+                         ItemsSource="{Binding CmbContent}" MinWidth="120" SelectedIndex="0" MaxHeight="22" />
+                    </DockPanel>
+
+                    <DockPanel Margin="0,4,0,0">
+                        <Label x:Name="X1_13lable" Content="Контакт 13" HorizontalAlignment="Left" DockPanel.Dock="Left"/>
+                        <ComboBox x:Name="X1_13" HorizontalAlignment="Left" DockPanel.Dock="Left" Margin="0,0,15,0"
+                          ItemsSource="{Binding CmbContent}" MinWidth="120" SelectedIndex="0" MaxHeight="22"/>
+
+                        <Separator x:Name="separator_13" Width="10" Height="auto" RenderTransformOrigin="0.5,0.5" >
+                            <Separator.RenderTransform>
+                                <RotateTransform Angle="90"/>
+                            </Separator.RenderTransform>
+                        </Separator>
+
+                        <Label x:Name="X2_13lable" Content="Контакт 13" HorizontalAlignment="Right" DockPanel.Dock="Right"/>
+                        <ComboBox x:Name="X2_13" HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="15,0,0,0"
+                         ItemsSource="{Binding CmbContent}" MinWidth="120" SelectedIndex="0" MaxHeight="22" />
+                    </DockPanel>
+
+                    <DockPanel Margin="0,4,0,0">
+                        <Label x:Name="X1_14lable" Content="Контакт 14" HorizontalAlignment="Left" DockPanel.Dock="Left"/>
+                        <ComboBox x:Name="X1_14" HorizontalAlignment="Left" DockPanel.Dock="Left" Margin="0,0,15,0"
+                          ItemsSource="{Binding CmbContent}" MinWidth="120" SelectedIndex="0" MaxHeight="22" />
+
+                        <Separator x:Name="separator_14" Width="10" Height="auto" RenderTransformOrigin="0.5,0.5" >
+                            <Separator.RenderTransform>
+                                <RotateTransform Angle="90"/>
+                            </Separator.RenderTransform>
+                        </Separator>
+
+                        <Label x:Name="X2_14lable" Content="Контакт 14" HorizontalAlignment="Right" DockPanel.Dock="Right"/>
+                        <ComboBox x:Name="X2_14" HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="15,0,0,0"
+                         ItemsSource="{Binding CmbContent}" MinWidth="120" SelectedIndex="0" MaxHeight="22" />
+                    </DockPanel>
+
+                    <DockPanel Margin="0,4,0,0">
+                        <Label x:Name="X1_15lable" Content="Контакт 15" HorizontalAlignment="Left" DockPanel.Dock="Left"/>
+                        <ComboBox x:Name="X1_15" HorizontalAlignment="Left" DockPanel.Dock="Left" Margin="0,0,15,0"
+                          ItemsSource="{Binding CmbContent}" MinWidth="120" SelectedIndex="0" MaxHeight="22" />
+
+                        <Separator x:Name="separator_15" Width="10" Height="auto" RenderTransformOrigin="0.5,0.5" >
+                            <Separator.RenderTransform>
+                                <RotateTransform Angle="90"/>
+                            </Separator.RenderTransform>
+                        </Separator>
+
+                        <Label x:Name="X2_15lable" Content="Контакт 15" HorizontalAlignment="Right" DockPanel.Dock="Right"/>
+                        <ComboBox x:Name="X2_15" HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="15,0,0,0"
+                         ItemsSource="{Binding CmbContent}" MinWidth="120" SelectedIndex="0" MaxHeight="22" />
+                    </DockPanel>
+
+                    <DockPanel Margin="0,4,0,0">
+                        <Label x:Name="X1_16lable" Content="Контакт 16" HorizontalAlignment="Left" DockPanel.Dock="Left"/>
+                        <ComboBox x:Name="X1_16" HorizontalAlignment="Left" DockPanel.Dock="Left" Margin="0,0,15,0"
+                          ItemsSource="{Binding CmbContent}" MinWidth="120" SelectedIndex="0" MaxHeight="22" />
+
+                        <Separator x:Name="separator_16" Width="10" Height="auto" RenderTransformOrigin="0.5,0.5" >
+                            <Separator.RenderTransform>
+                                <RotateTransform Angle="90"/>
+                            </Separator.RenderTransform>
+                        </Separator>
+
+                        <Label x:Name="X2_16lable" Content="Контакт 16" HorizontalAlignment="Right" DockPanel.Dock="Right"/>
+                        <ComboBox x:Name="X2_16" HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="15,0,0,0"
+                         ItemsSource="{Binding CmbContent}" MinWidth="120" SelectedIndex="0" MaxHeight="22" />
+                    </DockPanel>
+
+                    <DockPanel Margin="0,4,0,0">
+                        <Label x:Name="X1_17lable" Content="Контакт 17" HorizontalAlignment="Left" DockPanel.Dock="Left"/>
+                        <ComboBox x:Name="X1_17" HorizontalAlignment="Left" DockPanel.Dock="Left" Margin="0,0,15,0"
+                          ItemsSource="{Binding CmbContent}" MinWidth="120" SelectedIndex="0" MaxHeight="22" />
+
+                        <Separator x:Name="separator_17" Width="10" Height="auto" RenderTransformOrigin="0.5,0.5" >
+                            <Separator.RenderTransform>
+                                <RotateTransform Angle="90"/>
+                            </Separator.RenderTransform>
+                        </Separator>
+
+                        <Label x:Name="X2_17lable" Content="Контакт 17" HorizontalAlignment="Right" DockPanel.Dock="Right"/>
+                        <ComboBox x:Name="X2_17" HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="15,0,0,0"
+                         ItemsSource="{Binding CmbContent}" MinWidth="120" SelectedIndex="0" MaxHeight="22" />
+                    </DockPanel>
+
+                    <DockPanel Margin="0,4,0,0">
+                        <Label x:Name="X1_18lable" Content="Контакт 18" HorizontalAlignment="Left" DockPanel.Dock="Left"/>
+                        <ComboBox x:Name="X1_18" HorizontalAlignment="Left" DockPanel.Dock="Left" Margin="0,0,15,0"
+                          ItemsSource="{Binding CmbContent}" MinWidth="120" SelectedIndex="0" MaxHeight="22" />
+
+                        <Separator x:Name="separator_18" Width="10" Height="auto" RenderTransformOrigin="0.5,0.5" >
+                            <Separator.RenderTransform>
+                                <RotateTransform Angle="90"/>
+                            </Separator.RenderTransform>
+                        </Separator>
+
+                        <Label x:Name="X2_18lable" Content="Контакт 18" HorizontalAlignment="Right" DockPanel.Dock="Right"/>
+                        <ComboBox x:Name="X2_18" HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="15,0,0,0"
+                         ItemsSource="{Binding CmbContent}" MinWidth="120" SelectedIndex="0" MaxHeight="22" />
+                    </DockPanel>
+
+                    <DockPanel Margin="0,4,0,0">
+                        <Label x:Name="X1_19lable" Content="Контакт 19" HorizontalAlignment="Left" DockPanel.Dock="Left"/>
+                        <ComboBox x:Name="X1_19" HorizontalAlignment="Left" DockPanel.Dock="Left" Margin="0,0,15,0"
+                          ItemsSource="{Binding CmbContent}" MinWidth="120" SelectedIndex="0" MaxHeight="22" />
+
+                        <Separator x:Name="separator_19" Width="10" Height="auto" RenderTransformOrigin="0.5,0.5" >
+                            <Separator.RenderTransform>
+                                <RotateTransform Angle="90"/>
+                            </Separator.RenderTransform>
+                        </Separator>
+
+                        <Label x:Name="X2_19lable" Content="Контакт 19" HorizontalAlignment="Right" DockPanel.Dock="Right"/>
+                        <ComboBox x:Name="X2_19" HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="15,0,0,0"
+                         ItemsSource="{Binding CmbContent}" MinWidth="120" SelectedIndex="0" MaxHeight="22" />
+                    </DockPanel>
+
+                </StackPanel>
+            </ScrollViewer>
+
+            <DockPanel Grid.Row="4" Grid.Column="2" VerticalAlignment="Stretch" Margin="0,15,0,0">
+
+                  </DockPanel>
+
+
+        </StackPanel>
+
+        <DockPanel  Grid.Column="0" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Stretch" Grid.ColumnSpan="3" Margin="7,4,7,10">
+
+            <Button x:Name="Open_picture_scheme" Content="Схема" Height="auto" MinWidth="68" Margin="0,0,10,0"
+                        Padding="5,2,5,2" MinHeight="25" Click="Open_picture_scheme_Click" 
+                         />
+
+            <Button x:Name="Clear_all_Comboboxes" Content="Сбросить сети" MinHeight="25" MaxWidth="160" HorizontalAlignment="Stretch" 
+                        Padding="5,2,5,2" Click="Clear_all_Comboboxes_Click" Margin="10,0,0,0" Height="auto" Width="128" />
+
+
+            <Button x:Name="Create_cabel_topology" Content="Создать топологию" Height="auto" Width="auto" 
+                        MinHeight="25" MaxWidth="160" HorizontalAlignment="Right" DockPanel.Dock="Right" Padding="5,2,5,2"  FontWeight="Bold" Click="Create_cabel_topology_Click"/>
+
+            <ToggleButton x:Name="CheckMode" Content="Проверка" MinHeight="25" Margin="0,0,25,0"
+                                  IsChecked="False" HorizontalAlignment="Center" DockPanel.Dock="Right" 
+                          ToolTip="Подсветка контактов одной сети" Padding="5,2,5,2" 
+                          ToolTipService.ShowDuration="2000" ToolTipService.HasDropShadow="True" ToolTipService.InitialShowDelay="2000" Click="CheckMode_Click">
+            </ToggleButton>
+
+            <CheckBox x:Name="Same_second_connector" Content="Применять к разъёму Х2" Margin="0,0,24,0"
+                                  IsChecked="True" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Right"
+                          ToolTip="Одноимённый контакт разъёма Х2, повторяет установку контакта разъёма Х1."
+                          ToolTipService.ShowDuration="2000" ToolTipService.HasDropShadow="True" ToolTipService.InitialShowDelay="2000">
+            </CheckBox>
+
+            
+
+            
+        </DockPanel>
+
+    </Grid>
+</Window>
