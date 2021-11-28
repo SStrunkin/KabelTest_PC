@@ -5,10 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KabelTest"
         mc:Ignorable="d"
-        Title="Проверка" MinHeight="600" MinWidth="800" Height="700" Width="1000" WindowStartupLocation="CenterScreen" WindowState="Maximized">
-    <Grid Background="LightGray" ShowGridLines="False">
+        x:Name="_MainWindow"
+        Closed="_MainWindow_Closed"       
+        Title="Проверка" MinHeight="600" MinWidth="800" Height="768" Width="1366" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+    
+    <Grid x:Name="MainGrid" Background="LightGray" ShowGridLines="False">
         <Grid.RowDefinitions>
-
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
@@ -24,14 +26,12 @@
             <MenuItem Header="Окно">
                 <MenuItem Header="Создание топологии" Click="MenuItem_Click"></MenuItem>
                 <MenuItem x:Name="PortItem" Header="Порт" Click="PortItem_Click" ></MenuItem>
+                <MenuItem x:Name="ChoiceFolder" Header="Выбор папки" Click="ChoiceFolder_Click"></MenuItem>
             </MenuItem>
-            <MenuItem Header="О программе">
-                <MenuItem Header="Как пользоваться программой"></MenuItem>
-                <MenuItem Header="Как пользоваться прибором"></MenuItem>
-                <Separator></Separator>
-                <MenuItem Header="Текущая версия"></MenuItem>
+            <MenuItem Header="Проверка">
+                <MenuItem Header="Очистить поле" Click="MenuItem_Click_1"></MenuItem>
+                <MenuItem x:Name="QuickComparing" Header="Быстрая проверка" IsChecked="False" Click="QuickComparing_Click"></MenuItem>
             </MenuItem>
-
         </Menu>
 
         <ScrollViewer Grid.RowSpan="4" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Grid.Column="1">
@@ -81,7 +81,7 @@
                 </Grid.RowDefinitions>
 
 
-                
+
                 <StackPanel x:Name="topFrame" Orientation="Horizontal" Grid.Row="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></StackPanel>
                 <StackPanel x:Name="pass_1_1" Orientation="Horizontal" Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></StackPanel>
                 <StackPanel x:Name="pass_1_2" Orientation="Horizontal" Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></StackPanel>
@@ -125,33 +125,39 @@
                 <StackPanel x:Name="bottomFrame" Orientation="Horizontal" Grid.Row="40" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></StackPanel>
 
                 <Grid x:Name="CanvasGrid" Grid.RowSpan="41" >
-                    
+
                 </Grid>
 
             </Grid>
         </ScrollViewer>
 
-        <Image x:Name="SchemeCompWin" Grid.Row="0" Grid.RowSpan="2" Margin="0,28,1,0" MouseRightButtonUp="SchemeCompWin_MouseRightButtonUp">
-            
-        </Image>
         
-            <ListBox x:Name="listBox" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,1,1" Grid.Row="2" Background="DarkGray" 
+        <ScrollViewer Grid.Row ="0" Grid.RowSpan="2" Margin="0,28,1,0" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Grid.Column="0">
+            <StackPanel x:Name="SchemeStackPanel" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" Grid.RowSpan="2" Margin="10,28,5,5"></StackPanel>
+        </ScrollViewer>
+        <Image x:Name="SchemeCompWin" Grid.Row="0" Grid.RowSpan="2" Margin="0,28,1,0" MouseRightButtonUp="SchemeCompWin_MouseRightButtonUp">
+
+        </Image>
+        <ListBox x:Name="listBox" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,151,1" Grid.Row="2" Background="DarkGray" 
                       SelectionMode="Single" FontSize="15" FontWeight="DemiBold" MouseLeftButtonUp="listBox_MouseLeftButtonUp" KeyDown="listBox_KeyDown" SelectionChanged="listBox_SelectionChanged" MouseDoubleClick="listBox_MouseDoubleClick">
 
-            </ListBox>
+        </ListBox>
 
-        
+
 
         <StackPanel Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" Margin="0,0,1,0">
-            <Button x:Name="ComparingButton" Height="Auto" Width="Auto" Content="Проверка" Click="ComparingButton_Click"
-                 FontWeight="Bold" FontSize="15" Padding="2,4,2,4" MinWidth="150" MinHeight="42"/>
-            <Button x:Name="RefreshList" Content="Обновить список" Click="RefreshList_Click" Padding="1,1,1,1" Margin="0,0,0,0"/>
-                <Button x:Name="ClearLabeles" Content="Очистить поле" Click="ClearLabeles_Click" Padding="1,1,1,1" Margin="0,0,0,0"/>
-                                                              
-        </StackPanel>
-        
-        <TextBox x:Name="Console_comparingWindow" Grid.Column="0" Grid.Row="3"  Padding="1,1,1,1"  ScrollViewer.CanContentScroll="True" Margin="0,0,1,0"
-                 VerticalScrollBarVisibility="Auto" Text="Результат проверки: " IsReadOnly="True" HorizontalScrollBarVisibility="Auto" TextChanged="Console_comparingWindow_TextChanged"/>
+            <Button x:Name="ComparingButton" Content="Проверка" Click="ComparingButton_Click"
+                 FontWeight="Bold" FontSize="15" Padding="2,4,2,4" MinWidth="150" MinHeight="80" />
+            <Button x:Name="RefreshList" Content="Обновить список" Click="RefreshList_Click" Padding="1,1,1,1"  MinHeight="35" 
+                     FontSize="15"/>
+            <Button x:Name="QuickComparingButton" Content="Быстрая проверка" Padding="1,1,1,1"  Click="QuickComparingButton_Click"
+                        MinHeight="60" FontWeight="Bold" IsEnabled="False" FontSize="13"/>
 
+        </StackPanel>
+
+        <TextBox x:Name="Console_comparingWindow" Grid.Column="0" Grid.Row="3"  Padding="1,1,1,1"  ScrollViewer.CanContentScroll="True" Margin="0,0,1,0"
+                 VerticalScrollBarVisibility="Auto" Text="Результат проверки: " IsReadOnly="True" HorizontalScrollBarVisibility="Auto" TextChanged="Console_comparingWindow_TextChanged" FontSize="12"/>
+        <Button x:Name="Console_comparingWindow_fontsize" Content="+" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="0" Grid.Row="3"
+                Width="20" Height="20" VerticalAlignment="Top" HorizontalAlignment="Right" Click="Console_comparingWindow_fontsize_Click"></Button>
     </Grid>
 </Window>

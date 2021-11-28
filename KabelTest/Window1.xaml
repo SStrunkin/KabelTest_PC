@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KabelTest"
         mc:Ignorable="d"
-       Title="Выбор COM порта" Height="300" Width="300">
+       Title="Выбор COM порта" Height="300" Width="300" ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>

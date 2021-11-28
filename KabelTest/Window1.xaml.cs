@@ -40,7 +40,7 @@ namespace KabelTest
 
         private void Refresh_SerialList_Click(object sender, RoutedEventArgs e)
         {
-            ports = SerialPort.GetPortNames();
+            ports = SerialPort.GetPortNames();           
             COM_port_choice.ItemsSource = ports;
             COM_Info.Content = "Список обновлён";
         }

@@ -10,6 +10,7 @@ namespace KabelTest
     {
         private const int Kabel_topology_arr_lenght = 1482;
         private const int Sum_pins_in_X = 19;
+        private const int ToEeprom_arrayLength = 228;
 
         private int[] X1_Topology_sourse = new int[Sum_pins_in_X];
         private int[] X2_Topology_sourse = new int[Sum_pins_in_X];
@@ -24,6 +25,16 @@ namespace KabelTest
             Array.Clear(Kabel_topology_arr, 0, Kabel_topology_arr.Length);
             Array.Clear(Kabel_topology_arr_1, 0, Kabel_topology_arr_1.Length);
             Array.Clear(Kabel_topology_arr_2, 0, Kabel_topology_arr_2.Length);
+        }
+
+        public int getToEeprom_arrayLength()
+        {
+            return ToEeprom_arrayLength;
+        }
+
+        public char[] getKabel_topology_arr_1()
+        {
+            return Kabel_topology_arr_1;
         }
 
         public void Set_Kabel_topology_arr_1_WhenOpen(string s)
@@ -157,79 +168,79 @@ namespace KabelTest
                     c = 0;
                     break;
 
-                case "Сеть 1":
+                case "Цепь 1":
                     c = 1;
                     break;
 
-                case "Сеть 2":
+                case "Цепь 2":
                     c = 2;
                     break;
 
-                case "Сеть 3":
+                case "Цепь 3":
                     c = 3;
                     break;
 
-                case "Сеть 4":
+                case "Цепь 4":
                     c = 4;
                     break;
 
-                case "Сеть 5":
+                case "Цепь 5":
                     c = 5;
                     break;
 
-                case "Сеть 6":
+                case "Цепь 6":
                     c = 6;
                     break;
 
-                case "Сеть 7":
+                case "Цепь 7":
                     c = 7;
                     break;
 
-                case "Сеть 8":
+                case "Цепь 8":
                     c = 8;
                     break;
 
-                case "Сеть 9":
+                case "Цепь 9":
                     c = 9;
                     break;
 
-                case "Сеть 10":
+                case "Цепь 10":
                     c = 10;
                     break;
 
-                case "Сеть 11":
+                case "Цепь 11":
                     c = 11;
                     break;
 
-                case "Сеть 12":
+                case "Цепь 12":
                     c = 12;
                     break;
 
-                case "Сеть 13":
+                case "Цепь 13":
                     c = 13;
                     break;
 
-                case "Сеть 14":
+                case "Цепь 14":
                     c = 14;
                     break;
 
-                case "Сеть 15":
+                case "Цепь 15":
                     c = 15;
                     break;
 
-                case "Сеть 16":
+                case "Цепь 16":
                     c = 16;
                     break;
 
-                case "Сеть 17":
+                case "Цепь 17":
                     c = 17;
                     break;
 
-                case "Сеть 18":
+                case "Цепь 18":
                     c = 18;
                     break;
 
-                case "Сеть 19":
+                case "Цепь 19":
                     c = 19;
                     break;
 

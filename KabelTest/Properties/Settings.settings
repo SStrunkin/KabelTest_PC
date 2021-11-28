@@ -9,7 +9,7 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="Stings_in_saved_file" Type="System.Byte" Scope="User">
-      <Value Profile="(Default)">6</Value>
+      <Value Profile="(Default)">8</Value>
     </Setting>
   </Settings>
 </SettingsFile>

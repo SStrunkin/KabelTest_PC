@@ -49,7 +49,7 @@ namespace KabelTest.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("6")]
+        [global::System.Configuration.DefaultSettingValueAttribute("8")]
         public byte Stings_in_saved_file {
             get {
                 return ((byte)(this["Stings_in_saved_file"]));
